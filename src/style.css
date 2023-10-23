@@ -1,0 +1,57 @@
+.weather-app {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+}
+
+h1 {
+  margin: 0;
+  padding-top: 20px;
+  font-size: 35px;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.form-control {
+  width: 400px;
+  margin: 5px;
+}
+
+.button {
+  display: block;
+  margin: 0 auto;
+}
+
+.weather-stats {
+  font-size: 15px;
+  line-height: 1.5;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.temperature {
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.temperature-other {
+  padding-top: 20px;
+}
+
+.row {
+  font-size: 18px;
+  text-align: center;
+}
+
+.footer {
+  padding-top: 20px;
+  font-size: 10px;
+}

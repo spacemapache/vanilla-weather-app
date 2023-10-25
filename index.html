@@ -10,164 +10,142 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="src/style.css"/>
+    <link rel="stylesheet" href="src/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&family=Roboto+Mono:wght@300&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Weather App</title>
   </head>
   <body>
-    <div class="container"
-    max-width: 600px;>
-    <div class="weather-app">
+    <div class="container" max-width: 600px;>
+      <div class="weather-app">
+        <form>
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter a city"
+              id="search-city"
+            />
+          </div>
+        </form>
 
-    <form>
-  <div class="mb-3">
-    <input type="text" 
-    class="form-control" 
-    placeholder="Enter a city"
-    id="search-city">
-  </div>
-  </form>
-    
-      <button type="submit" class="btn btn-primary">
-    Search
-  </button>
-    
-    <button type="button" class="btn btn-success" id="current-Temp">
-    Current
-  </button>
-   
+        <button type="submit" class="btn btn-primary">Search</button>
 
- 
-      <h1>
-        Singapore
-      </h1>  
+        <button type="button" class="btn btn-success" id="current-Temp">
+          Current
+        </button>
 
-      <h3 id= "date">
-        Date
-      </h3>
+        <h1>Singapore</h1>
 
-      <h4 id="description">
-        Clear
-      </h4>
+        <h3 id="date">Date</h3>
 
-<p>
-<div class="container text-center">
-  <div class="row">
-    <div class="col">
-    <div class="weather-stats">
-Humidity:
-        <span id="humidity">
-          67%
-        </span>
-      </br>
-        Wind:
-        <span id="wind">
-          18 km/h
-        </span>
-    </div>
-    </div>
-    <div class="col">
-      
-    </div>
-    <div class="col">
-      <div class="temperature" id="local-temp"> 
-  <img 
-  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-  id ="icon"
-  />31 
- </div>
-  <span id ="temperature-change">
-    <a href="#" class="link-primary" id= "celsius">°C</a> |
-<a href="#" class="link-primary" id= "fahrenheit">°F</a>
-</span>
-    </div>
-  </div>
-  
-</p>
-      
-      <p>    
-  <div class="container text-center">
-  <div class="row">
-    <div class="col-1">
-      <div class="temperature-other">
-     <strong>Mon</strong>
-      <br />
-      🌧️
-      <br />
-      25°C
-    </div>
-    </div>
-    <div class="col-1">
-    <div class="temperature-other">
-      <strong>Tues</strong>  
-      <br />
-      ☀️
-      <br />
-      32°C
-    </div>
-    </div>
-    <div class="col-1">
-     <div class="temperature-other"> 
-      <strong>Wed</strong>
-      <br />
-      ☀️
-      <br />
-      31°C
-    </div>
-  </div>
-    <div class="col-1">
-     <div class="temperature-other"> 
-      <strong>Thurs</strong>
-      <br />
-      🌥️
-      <br />
-      29°C
-    </div>
-    </div>
-    <div class="col-1">
-    <div class="temperature-other"> 
-      <strong>Fri</strong>
-      <br />
-      🌧️
-      <br />
-      25°C
-    </div> 
-    </div>
+        <h4 id="description">Clear</h4>
 
-  </div>
-</div> 
- </p>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col">
+              <img
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                id="icon"
+              />
+              <div id="local-temp">
+                31
+                <span id="temperature-change">
+                  <a href="#" class="link-primary" id="celsius">°C</a> |
+                  <a href="#" class="link-primary" id="fahrenheit">°F</a>
+                </span>
+              </div>
+            </div>
+            <div class="col">
+              <div class="weather-stats">
+                Humidity:
+                <span id="humidity"> 67% </span>
+                <br />
+                Wind:
+                <span id="wind"> 8 km/h </span>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-1">
+              <div class="temperature-other">
+                <strong>Mon</strong>
+                <br />
+                🌧️
+                <br />
+                25°C
+              </div>
+            </div>
+            <div class="col-1">
+              <div class="temperature-other">
+                <strong>Tues</strong>
+                <br />
+                ☀️
+                <br />
+                32°C
+              </div>
+            </div>
+            <div class="col-1">
+              <div class="temperature-other">
+                <strong>Wed</strong>
+                <br />
+                ☀️
+                <br />
+                31°C
+              </div>
+            </div>
+            <div class="col-1">
+              <div class="temperature-other">
+                <strong>Thurs</strong>
+                <br />
+                🌥️
+                <br />
+                29°C
+              </div>
+            </div>
+            <div class="col-1">
+              <div class="temperature-other">
+                <strong>Fri</strong>
+                <br />
+                🌧️
+                <br />
+                25°C
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <small>
-<span class="footer">
-        <a href="https://github.com/spacemapache/weather-app-test"
-        target="_blank">
-        Open source code
-      </a> 
-      by Isabelle Ang
-    </span>
-  </small>
-
-</div>
-</div>
-
-   
+        <small>
+          <span class="footer">
+            <a
+              href="https://github.com/spacemapache/weather-app-test"
+              target="_blank"
+            >
+              Open source code
+            </a>
+            by Isabelle Ang
+          </span>
+        </small>
       </div>
-</div>
+    </div>
 
-   
-
-    <script src="src/index.js"></script> 
+    <script src="src/index.js"></script>
   </body>
 </html>

@@ -12,6 +12,7 @@ h1 {
   font-size: 35px;
   font-family: "Poppins", sans-serif;
   font-family: "Roboto", sans-serif;
+  text-transform: capitalize;
 }
 
 h3 {

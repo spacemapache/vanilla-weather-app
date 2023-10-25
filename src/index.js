@@ -33,14 +33,21 @@ let months = [
 
 let currentDay = days[now.getDay()];
 let currentHour = now.getHours();
+if (currentHour < 10) {
+  currentHour = `0${currentHour}`;
+}
 let currentMinutes = now.getMinutes();
+if (currentMinutes < 10) {
+  currentMinutes = `0${currentMinutes}`;
+}
+
 let currentMonth = months[now.getMonth()];
 let currentDate = now.getDate();
 
 let h3 = document.querySelector("h3");
 h3.innerHTML = `${currentDay} ${currentDate} ${currentMonth}, ${currentHour}:${currentMinutes}`;
 
-// show temperature while changing city
+// show weather details while changing city
 
 function search() {
   event.preventDefault();
@@ -71,6 +78,13 @@ function showTemperature(response) {
   let description = response.data.condition.description;
   let weatherDescription = document.querySelector("h4");
   weatherDescription.innerHTML = `${description}`;
+
+  let icon = response.data.condition.icon;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${icon}.png`
+  );
 }
 
 let clickButton = document.querySelector("button");

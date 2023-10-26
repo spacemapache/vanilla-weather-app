@@ -1,148 +1,29 @@
-// feature 1 - current date
-let now = new Date();
-now.getDay();
-now.getHours();
-now.getMinutes();
-now.getDate();
-now.getMonth();
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-let currentDay = days[now.getDay()];
-let currentHour = now.getHours();
-if (currentHour < 10) {
-  currentHour = `0${currentHour}`;
-}
-let currentMinutes = now.getMinutes();
-if (currentMinutes < 10) {
-  currentMinutes = `0${currentMinutes}`;
-}
-
-let currentMonth = months[now.getMonth()];
-let currentDate = now.getDate();
-
-let h3 = document.querySelector("h3");
-h3.innerHTML = `${currentDay} ${currentDate} ${currentMonth}, ${currentHour}:${currentMinutes}`;
-
-// show weather details while changing city
-
-function search() {
-  event.preventDefault();
-  let cityInput = document.querySelector("#search-city");
-
-  let city = document.querySelector("h1");
-  city.innerHTML = `${cityInput.value}`;
-
-  let apiKey = "bd9edf310f38ad20ae3ff7oeab4bet42";
-  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${cityInput.value}&key=${apiKey}&units=metric`;
-  console.log(apiURL);
-  axios.get(apiURL).then(showTemperature);
-}
+// change weather information
 
 function showTemperature(response) {
-  let temperature = Math.round(response.data.temperature.current);
-  let temperatureElement = document.querySelector("#local-temp");
-  temperatureElement.innerHTML = `${temperature}`;
-
   let humidity = Math.round(response.data.temperature.humidity);
-  let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = `${humidity}%`;
-
   let wind = Math.round(response.data.wind.speed);
-  let windElement = document.querySelector("#wind");
-  windElement.innerHTML = `${wind} km/h`;
-
-  let description = response.data.condition.description;
-  let weatherDescription = document.querySelector("h4");
-  weatherDescription.innerHTML = `${description}`;
-
   let icon = response.data.condition.icon;
+
+  let temperatureElement = document.querySelector("#local-temp");
+  let cityElement = document.querySelector("#city");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let weatherDescription = document.querySelector("#description");
   let iconElement = document.querySelector("#icon");
+
+  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  cityElement.innerHTML = response.data.city;
+  humidityElement.innerHTML = `${humidity}%`;
+  windElement.innerHTML = `${wind} km/h`;
+  weatherDescription.innerHTML = response.data.condition.description;
   iconElement.setAttribute(
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${icon}.png`
   );
 }
 
-let clickButton = document.querySelector("button");
-clickButton.addEventListener("click", search);
+let apiKey = "bd9edf310f38ad20ae3ff7oeab4bet42";
+let apiURL = `https://api.shecodes.io/weather/v1/current?query=Los Angeles&key=${apiKey}&units=metric`;
 
-// current location
-function currentTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-
-  let currentTemp = document.querySelector("#local-temp");
-  currentTemp.innerHTML = `${temperature}`;
-
-  let humidity = Math.round(response.data.main.humidity);
-
-  let currentHumidity = document.querySelector("#humidity");
-  currentHumidity.innerHTML = `${humidity}%`;
-
-  let wind = Math.round(response.data.wind.speed);
-
-  let currentWind = document.querySelector("#wind");
-  currentWind.innerHTML = `${wind} km/h`;
-
-  let cityName = response.data.name;
-
-  let heading = document.querySelector("h1");
-  heading.innerHTML = `${cityName}`;
-}
-
-function showPosition(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let units = "metric";
-  let apiKey = "5aac6d0188c6f17d6d2bbe6591b6fef0";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-  console.log();
-  axios.get(apiURL).then(currentTemperature);
-}
-
-function getCurrentPosition() {
-  navigator.geolocation.getCurrentPosition(showPosition);
-}
-
-let button = document.querySelector("#current-Temp");
-button.addEventListener("click", getCurrentPosition);
-
-//feature 3 - celsius fahrenheit
-function fahrenheitTemp() {
-  let localTemp = document.querySelector("#local-temp");
-  localTemp.innerHTML = "88";
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", fahrenheitTemp);
-
-function celsiusTemp() {
-  let localTemp = document.querySelector("#local-temp");
-  localTemp.innerHTML = "31";
-}
-
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", celsiusTemp);
+axios.get(apiURL).then(showTemperature);

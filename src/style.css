@@ -27,15 +27,18 @@ h4 {
   font-weight: 300;
   text-transform: capitalize;
 }
-
-.form-control {
-  width: 400px;
-  margin: 5px;
+p {
+  font-size: 10px;
+  text-align: center;
+  margin: 0 auto;
 }
 
-.button {
-  display: block;
-  margin: 0 auto;
+.icon {
+  margin: 0;
+  padding-top: 10px;
+}
+.local-temp {
+  font-size: 20px;
 }
 
 .weather-stats {
@@ -45,22 +48,6 @@ h4 {
   margin: 0;
 }
 
-.temperature {
-  padding-top: 20px;
-  font-size: 20px;
-}
-
 .temperature-other {
   padding-top: 20px;
-}
-
-.row {
-  font-size: 18px;
-  text-align: center;
-}
-
-.footer {
-  padding-top: 20px;
-  font-size: 10px;
-  text-align: center;
 }

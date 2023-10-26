@@ -48,8 +48,19 @@ function showTemperature(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${icon}.png`
   );
 }
+function search(city) {
+  let apiKey = "bd9edf310f38ad20ae3ff7oeab4bet42";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiURL).then(showTemperature);
+}
 
-let apiKey = "bd9edf310f38ad20ae3ff7oeab4bet42";
-let apiURL = `https://api.shecodes.io/weather/v1/current?query=Los Angeles&key=${apiKey}&units=metric`;
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
 
-axios.get(apiURL).then(showTemperature);
+search("Singapore");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

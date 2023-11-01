@@ -77,6 +77,41 @@ function showCelsiusTemp(event) {
 
 let celsiusTemp = null;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Tues", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+  <div class="weather-forecast" id="forecast">
+          <div class="weather-forecast-day">
+            <div class="weather-forecast-date">${day}</div>
+             <div class="weather-forecast-icon"><img
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                class="float-left"
+                width ="30"
+              />
+              </div>
+              <div class="weather-forecast-temperature">
+              <span class="weather-forecast-temperature-max">
+              30°
+              </span>
+              <span class="weather-forecast-temperature-min">
+                25°
+              </span>
+              
+            </div>
+          </div>
+  `;
+  });
+
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
@@ -87,3 +122,5 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
 search("Singapore");
+
+displayForecast();

@@ -34,7 +34,7 @@
       <div class="weather-app">
         <form id="search-form">
           <div class="row">
-            <div class="col-8">
+            <div class="col-9">
               <input
                 type="search"
                 placeholder="Enter a city"
@@ -43,13 +43,8 @@
               />
             </div>
 
-            <div class="col-2">
+            <div class="col-3">
               <input type="submit" value="Search" class="btn btn-primary" />
-            </div>
-            <div class="col-2">
-              <button type="button" class="btn btn-success" id="current-Temp">
-                Current
-              </button>
             </div>
           </div>
         </form>
@@ -89,42 +84,34 @@
         </div>
 
         <div class="weather-forecast" id="forecast">
-          <div class="weather-forecast-day">
-            <div class="weather-forecast-date">Mon</div>
-             <div class="weather-forecast-icon"><img
-                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-                class="float-left"
-                width ="30"
-              />
+              <div class="weather-forecast-day">
+                <div class="weather-forecast-date">
+                  <strong>Mon</strong></div>
+                <div class="weather-forecast-icon">
+                  <img
+                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                  
+                  />
+                </div>
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-temperature-max"> 30° </span>
+                  <span class="weather-forecast-temperature-min"> 25° </span>
+                </div>
               </div>
-              <div class="weather-forecast-temperature">
-              <span class="weather-forecast-temperature-max">
-              30°
-              </span>
-              <span class="weather-forecast-temperature-min">
-                25°
-              </span>
-                
-          
             </div>
           </div>
-          </div>
-          
         
-        </div>
-      </div>
-      </div>
 
-      <p>
-          <a
-            href="https://github.com/spacemapache/weather-app-test"
-            target="_blank"
-          >
-            Open source code
-          </a>
-          by Isabelle Ang
-        </p>
-    
+    <p>
+      <a
+        href="https://github.com/spacemapache/weather-app-test"
+        target="_blank"
+      >
+        Open source code
+      </a>
+      by Isabelle Ang
+    </p>
+
     <script src="src/index.js"></script>
   </body>
 </html>

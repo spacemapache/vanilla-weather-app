@@ -38,11 +38,11 @@ p {
 
 .icon {
   margin: 0;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .local-temp {
-  font-size: 30px;
+  font-size: 90%;
 }
 
 .weather-stats {
@@ -53,12 +53,15 @@ p {
 }
 
 .weather-forecast {
-  padding-top: 30px;
+  padding-top: 20px;
   text-align: center;
+  display: inline-block;
+  margin-right: 50px;
 }
 
 .weather-forecast-date {
   font-size: 15px;
+  font-weight: 500;
 }
 
 .weather-forecast-temperature {
@@ -76,5 +79,5 @@ p {
 }
 
 .weather-forecast-icon {
-  width: 38px;
+  width: 40px;
 }

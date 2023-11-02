@@ -74,3 +74,7 @@ p {
   cursor: default;
   color: #000000;
 }
+
+.weather-forecast-icon {
+  width: 38px;
+}

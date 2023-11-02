@@ -1,3 +1,4 @@
+// real time date
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -24,6 +25,7 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+// temperature
 function showTemperature(response) {
   let humidity = Math.round(response.data.temperature.humidity);
   let wind = Math.round(response.data.wind.speed);
@@ -49,6 +51,7 @@ function showTemperature(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${icon}.png`
   );
+  getForecast(response.data.city);
 }
 function search(city) {
   let apiKey = "bd9edf310f38ad20ae3ff7oeab4bet42";
@@ -77,7 +80,16 @@ function showCelsiusTemp(event) {
 
 let celsiusTemp = null;
 
-function displayForecast() {
+//forecast
+
+function getForecast(city) {
+  let apiKey = "bd9edf310f38ad20ae3ff7oeab4bet42";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Tues", "Wed", "Thu", "Fri", "Sat"];
@@ -122,5 +134,3 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
 search("Singapore");
-
-displayForecast();
